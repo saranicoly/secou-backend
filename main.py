@@ -8,14 +8,10 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-# Configurar CORS
-origins = [
-    "http://localhost:8100",  # Origem do seu frontend Ionic
-]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
