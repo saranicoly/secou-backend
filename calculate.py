@@ -1,3 +1,4 @@
+import random
 import googlemaps
 import re
 import requests
@@ -152,7 +153,8 @@ def calculate_route(origin, destination, time):
     streets_geolocation = OrderedDict()
     for street in directions_result:
         lat, lng = get_geolocation(f'{street}, recife').values()
-        weather = get_weather(time, lat, lng)
+        # weather = get_weather(time, lat, lng)
+        weather = random.randint(0, 40)
         elevation = get_elevation(lat, lng)
         streets_geolocation[street] = street_location[street]
         probability = calculate_probability(weather, elevation)
